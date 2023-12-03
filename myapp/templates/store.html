@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% block category %}
+<div class="row post_row">
+    
+    <div class = "col-xl-4 col-lg-4 col-md-4">
+        <img src="{% static 'img/daxay.jpg' %}" alt="" class="img"/>
+        <h5>Machata ĐÁ XAY</h5>
+        <p>29.000 đ</p>
+    </div>
+    <div class = "col-xl-4 col-lg-4 col-md-4">
+        <img src="{% static 'img/milktea.jpg' %}" alt="" class="img"/>
+        <h5>Trà Sữa</h5>
+        <p>29.000 đ</p>
+        <a href='#'><i class="bi bi-cart2"></i></a>
+    </div>
+    <div class = "col-xl-4 col-lg-4 col-md-4">
+        <img src="{% static 'img/matcha.jpg' %}" alt="" class="img"/>
+        <h5>Machata </h5>
+        <p>29.000 đ</p>
+    </div>
+</div>
+{% endblock %}
