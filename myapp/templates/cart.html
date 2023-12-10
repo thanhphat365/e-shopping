@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% block category %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <button><i class="bi bi-bag"> Continue Shopping</i></button>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>Item : 4</h4>
+    </div>
+    <div class="col-md-4">
+      <h4>Total  : $100</h4>
+    </div>
+    <div class="col-md-4">
+        <a href="check_out/"><button>Check out<i class="bi bi-arrow-right"></i></button></a>
+     </div>
+  </div>
+  <hr>
+<div class = "total">
+    <div class= "row">
+        <div class="col-md-3">
+            <H4>Item</h4>
+            <H5>Sản Phẩm</h5>
+         </div>
+         
+         <div class="col-md-3">
+            <H4>Price</h4>
+            <H5>$56</h5>
+         </div>
+         <div class="col-md-3">
+            <H4>Quanlity</h4>
+            <input type="number">
+         </div>
+         <div class="col-md-3">
+            <H4>Total</h4>
+            <H5>$560</h5>
+         </div>
+
+    </div>
+</div>
+  {% endblock %}
+</div>
