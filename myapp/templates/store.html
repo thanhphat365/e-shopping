@@ -2,8 +2,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 {% block category %}
-<div class="row post_row">
-    
+<div class="row post_row">   
     <div class = "col-xl-4 col-lg-4 col-md-4">
         <img src="{% static 'img/daxay.jpg' %}" alt="" class="img"/>
         <h5>Machata ĐÁ XAY</h5>
@@ -11,16 +10,52 @@
         <a href='/cart'><i class="bi bi-cart2"></i></a>
     </div>
     <div class = "col-xl-4 col-lg-4 col-md-4">
-        <img src="{% static 'img/milktea.jpg' %}" alt="" class="img"/>
-        <h5>Trà Sữa</h5>
+        <img src="{% static 'img/daxay.jpg' %}" alt="" class="img"/>
+        <h5>Machata ĐÁ XAY</h5>
         <p>29.000 đ</p>
         <a href='/cart'><i class="bi bi-cart2"></i></a>
     </div>
     <div class = "col-xl-4 col-lg-4 col-md-4">
-        <img src="{% static 'img/matcha.jpg' %}" alt="" class="img"/>
-        <h5>Machata </h5>
+        <img src="{% static 'img/daxay.jpg' %}" alt="" class="img"/>
+        <h5>Machata ĐÁ XAY</h5>
         <p>29.000 đ</p>
         <a href='/cart'><i class="bi bi-cart2"></i></a>
     </div>
+    <div class = "col-xl-4 col-lg-4 col-md-4">
+        <img src="{% static 'img/daxay.jpg' %}" alt="" class="img"/>
+        <h5>Machata ĐÁ XAY</h5>
+        <p>29.000 đ</p>
+        <a href='/cart'><i class="bi bi-cart2"></i></a>
+    </div>
+    <div class = "col-xl-4 col-lg-4 col-md-4">
+        <img src="{% static 'img/daxay.jpg' %}" alt="" class="img"/>
+        <h5>Machata ĐÁ XAY</h5>
+        <p>29.000 đ</p>
+        <a href='/cart'><i class="bi bi-cart2"></i></a>
+    </div>
+    <div class = "col-xl-4 col-lg-4 col-md-4">
+        <img src="{% static 'img/daxay.jpg' %}" alt="" class="img"/>
+        <h5>Machata ĐÁ XAY</h5>
+        <p>29.000 đ</p>
+        <a href='/cart'><i class="bi bi-cart2"></i></a>
+    </div>
+</div>
+<div class = "pagination">
+    <span class = "step-links">
+        {% if products.has_previous %}
+            <a href = "?page={{products.previous_page_number}}">Previous</a>
+        {% endif %}
+    </span>
+    
+    <span class = "current">
+        Page{{products.number}} of {{products.paginator.num_pages}}.
+    </span>
+
+    <span>
+        {% if products.has_next %}
+            <a href="?page={{products.next_page_number}}">Next</a>
+        {% endif %}
+    </span>
+</div>
 </div>
 {% endblock %}
