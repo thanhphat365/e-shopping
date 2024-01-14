@@ -4,7 +4,7 @@ from .models import Cartitems,Customer,Product,Cart
 from django.http import JsonResponse
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 import json
-import requests
+from itertools import product
 # Create your views Cartitems)
 def store(request):
     if request.user.is_authenticated:
@@ -23,6 +23,10 @@ def store(request):
         products =paginator.page(paginator.num_pages)
     return render(request, 'store.html',{"products":products,"cart":cart})
 def cart (request):
-    return render (request,"cart.html",{})
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        cart , created = Cart.object.get_or_create(customer=customer,completed = False)
+        cartitems = cart.cartitems_set.all()
+    return render(request, 'cart.html', {'cartitems' : cartitems, 'cart':cart})
 def check_out (request):
     return render (request,"check_out.html",{})

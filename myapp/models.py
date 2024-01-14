@@ -1,18 +1,24 @@
 from django.db import models
 from django.contrib.auth.models import User   
 import uuid
+
 # Create your models here.
 class Customer( models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='customer')
     name = models.CharField(max_length=50)
     email = models.EmailField()
     num_phone = models.TextField(max_length=11)
     def __str__(self):
-        return self.title
+        return str(self.user)
+def generate_cart_id():
+    namespace = uuid.UUID('6ba7b811-9dad-11d1-80b4-00c04fd430c8')  
+    name = 'cart_id'  
+    return str(uuid.uuid5(namespace, name))
+
 class Cart(models.Model):
-    customer = models.ForeignKey(Customer,on_delete=models.CASCADE)
-    cart_id =models.UUIDField(default=uuid.uuid5,unique=True,editable=False)
-    completed= models.BooleanField(default=False)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    cart_id = models.UUIDField(default=generate_cart_id, unique=True, editable=False)
+    completed = models.BooleanField(default=False)
 class Product(models.Model):
     name = models.CharField(max_length=255)
     price = models.FloatField(default=10.55)

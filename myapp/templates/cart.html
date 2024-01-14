@@ -1,46 +1,50 @@
-{% extends 'base.html' %} {% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}" />
-{% block category %}
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <button><i class="bi bi-bag"> Continue Shopping</i></button>
-      <hr>
+{% extends 'base.html' %}
+{% block content %}
+<!-- Quantity and Price Section -->
+<div class = 'container' style = "width: 70%">
+    <table class="table table-light table-hover">
+        <thead>
+          <tr>
+            <th scope="col"><button type="button" class="btn btn-primary btn-lg">Continue Shopping →</button></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><h3><strong>Items: 4</strong></h3></th>
+            <td></td>
+            <td><h3><strong>Total: $100</strong></h3></td>
+            <!-- <td></td> -->
+            <td><button type="button" class="btn btn-primary btn-lg">Checkout →</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <h4>Item : 4</h4>
-    </div>
-    <div class="col-md-4">
-      <h4>Total  : $100</h4>
-    </div>
-    <div class="col-md-4">
-        <a href="check_out/"><button>Check out<i class="bi bi-arrow-right"></i></button></a>
-     </div>
-  </div>
-  <hr>
-<div class = "total">
-    <div class= "row">
-        <div class="col-md-3">
-            <H4>Item</h4>
-            <H5>Sản Phẩm</h5>
-         </div>
-         
-         <div class="col-md-3">
-            <H4>Price</h4>
-            <H5>$56</h5>
-         </div>
-         <div class="col-md-3">
-            <H4>Quanlity</h4>
-            <input type="number">
-         </div>
-         <div class="col-md-3">
-            <H4>Total</h4>
-            <H5>$560</h5>
-         </div>
-
-    </div>
+    <!-- Cart Section -->
+<div class = 'container' style = 'margin-top: 50px; width: 70%'>
+<table class="table table-light table-hover">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"><h3><strong>Item</strong></h3></th>
+        <th scope="col"><h3><strong>Price</strong></h3></th>
+        <th scope="col"><h3><strong>Quantity</strong></h3></th>
+        <th scope="col"><h3><strong>Total</strong></h3></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cartitems %}
+      <tr>
+        <th scope="row"><div id = "cart_image"><img src = {{item.product.image.url}}></div></th>
+        <td><h3>{{item.product.name}}</h3></td>
+        <td><h3>{{item.product.price}}</h3></td>
+        <td><input type = 'number' class = 'quantity' value = "{{item.quantity}}" style = 'width: 50px; padding-left: 5px'></td>
+        <td><h3>teky</h3></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
-  {% endblock %}
-</div>
+{% endblock %}
